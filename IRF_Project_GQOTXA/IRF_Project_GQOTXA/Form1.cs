@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IRF_Project_GQOTXA.MnbServiceReference;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace IRF_Project_GQOTXA
         public Form1()
         {
             InitializeComponent();
+            WebszolgaltatashivasaTest();
+        }
+
+        public void WebszolgaltatashivasaTest()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request = new GetCurrentExchangeRatesRequestBody()
+            {
+                currencyNames = "GBP",
+                startDate = "2020-10-01",
+                endDate = "2020-11-30"
+            };
+
+            var response = mnbService.GetExchangeRates(request);
+
+            var result = response.GetExchangeRatesResult;
         }
     }
 }
