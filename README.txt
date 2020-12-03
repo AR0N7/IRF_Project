@@ -13,5 +13,5 @@ Ebben az esetben a projektnek tartalmaznia kell legalább egy olyan absztrakt os
 
 Legalább 3 saját osztály vagy származtatott vezérlő
 Olyan összetett legyen, mint a Sudoku
-15-20 óra (8-9 nap, napi 2 óra)
+15-20 órát foglalkozni vele (8-9 nap, napi 2 óra kb) - Eddig foglalkoztam vele: 4 óra
 5 perces videó a kódról!
