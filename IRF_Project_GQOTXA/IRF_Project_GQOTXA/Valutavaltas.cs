@@ -16,14 +16,13 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Valutavaltas : UserControl
     {
-        BindingList<Adatok> Ertekek = new BindingList<Adatok>();
+        BindingList<AddedValues> Ertekek = new BindingList<AddedValues>();
 
         public Valutavaltas(string osszeg)
         {
             InitializeComponent();
             Valutak();
             labelOsszes.Text = osszeg;
-            GetValues();
         }
 
         public void Valutak()
@@ -51,51 +50,7 @@ namespace IRF_Project_GQOTXA
 
         }
 
-        private void GetValues()
-        {
-            var mnbService = new MNBArfolyamServiceSoapClient();
-
-            var request = new GetCurrentExchangeRatesRequestBody();
-
-            var response = mnbService.GetCurrentExchangeRates(request);
-
-            var result = response.GetCurrentExchangeRatesResult;
-
-            ReadXML(result);
-
-        }
-
-        public void ReadXML(string result)
-        {
-            var xml = new XmlDocument();
-            xml.LoadXml(result);
-
-            foreach (XmlElement element in xml.DocumentElement)
-            {
-                for (int child = 0; child <= 100; child++)
-                {
-                    var rate = new Adatok();
-
-                    var childElement = (XmlElement)element.ChildNodes[child];
-                    if (childElement == null)
-                    {
-                        continue;
-                    }
-                    rate.Valuta = childElement.GetAttribute("curr");
-
-
-                    var unit = decimal.Parse(childElement.GetAttribute("unit"));
-                    var value = decimal.Parse(childElement.InnerText);
-                    if (unit != 0)
-                        rate.Árfolyam = value / unit;
-
-                    Ertekek.Add(rate);
-                }
-
-            }
-        }
-
-        private void ButtonAdd_Click(object sender, EventArgs e)
+        public void ButtonAdd_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBoxVALUE.Text) | String.IsNullOrEmpty(comboBox1.Text))
             {
@@ -103,19 +58,70 @@ namespace IRF_Project_GQOTXA
             }
             else
             {
-                //Ha nem találja a beírt valutakódot, akkor error
+                //Ha nem találja a beírt valutakódot, akkor "Nem található valuta"
+                GetValues();
+            }
+        }
+
+        public void GetValues()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request2 = new GetExchangeRatesRequestBody()
+            {
+                currencyNames = comboBox1.Text,
+                startDate = DateTime.Now.ToString("yyyy-MM-dd"),
+                endDate = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
+            var response2 = mnbService.GetExchangeRates(request2);
+
+            var result2 = response2.GetExchangeRatesResult;
+
+            SelectedView.DataSource = Ertekek;
+
+            ReadXML(result2);
+        }
+
+        public void ReadXML(string val)
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(val);
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate2 = new AddedValues();
+                Ertekek.Add(rate2);
+
+                var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                {
+                    continue;
+                }
+                rate2.Valuta = childElement.GetAttribute("curr");
+
+
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit != 0)
+                    rate2.Árfolyam = value / unit;
+
+                rate2.Mennyiség = int.Parse(textBoxVALUE.Text);
+
+                rate2.Érték = (rate2.Árfolyam * rate2.Mennyiség);
             }
         }
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
+            //Legyen elég összeg azt validálja
             //MessageBox sikeres vásárlás, after Unit test
             //"Sikeres vásárlás, a tételek listáját megtalálja egy letöltött csv-ben"
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBoxVALUE_Validating(object sender, CancelEventArgs e)
@@ -140,6 +146,8 @@ namespace IRF_Project_GQOTXA
 
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
+            //UNIT TEST IDE!!!
+
             Regex r = new Regex(@"[A-Z]{3}");
             if (r.IsMatch(comboBox1.Text))
             {
@@ -163,7 +171,7 @@ namespace IRF_Project_GQOTXA
             this.Validate();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             this.Validate();
         }

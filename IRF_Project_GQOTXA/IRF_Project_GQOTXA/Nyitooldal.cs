@@ -22,6 +22,8 @@ namespace IRF_Project_GQOTXA
             Random rnd = new Random();
             int osszeg = (rnd.Next(1000, 50000)*100);
             InvisibleLabel.Text = osszeg.ToString();
+            InvisibleLabel.BackColor = Nyitooldal.DefaultBackColor;
+            InvisibleLabel.ForeColor = Nyitooldal.DefaultBackColor;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

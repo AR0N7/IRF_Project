@@ -30,16 +30,14 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBoxVALUE = new System.Windows.Forms.TextBox();
-            this.labelVALUE = new System.Windows.Forms.Label();
-            this.labelHUF = new System.Windows.Forms.Label();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.labelOsszes = new System.Windows.Forms.Label();
             this.labelFT = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SelectedView = new System.Windows.Forms.DataGridView();
             this.buttonBuy = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedView)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -49,7 +47,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox1_Validating);
             // 
             // textBoxVALUE
@@ -61,27 +59,9 @@
             this.textBoxVALUE.TextChanged += new System.EventHandler(this.textBoxVALUE_TextChanged);
             this.textBoxVALUE.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxVALUE_Validating);
             // 
-            // labelVALUE
-            // 
-            this.labelVALUE.AutoSize = true;
-            this.labelVALUE.Location = new System.Drawing.Point(46, 46);
-            this.labelVALUE.Name = "labelVALUE";
-            this.labelVALUE.Size = new System.Drawing.Size(44, 17);
-            this.labelVALUE.TabIndex = 2;
-            this.labelVALUE.Text = "Value";
-            // 
-            // labelHUF
-            // 
-            this.labelHUF.AutoSize = true;
-            this.labelHUF.Location = new System.Drawing.Point(183, 46);
-            this.labelHUF.Name = "labelHUF";
-            this.labelHUF.Size = new System.Drawing.Size(36, 17);
-            this.labelHUF.TabIndex = 3;
-            this.labelHUF.Text = "HUF";
-            // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(49, 100);
+            this.ButtonAdd.Location = new System.Drawing.Point(93, 54);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(143, 52);
             this.ButtonAdd.TabIndex = 4;
@@ -119,14 +99,14 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Összes egyenleg:";
             // 
-            // dataGridView1
+            // SelectedView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(327, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(487, 212);
-            this.dataGridView1.TabIndex = 8;
+            this.SelectedView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SelectedView.Location = new System.Drawing.Point(327, 5);
+            this.SelectedView.Name = "SelectedView";
+            this.SelectedView.RowTemplate.Height = 24;
+            this.SelectedView.Size = new System.Drawing.Size(487, 212);
+            this.SelectedView.TabIndex = 8;
             // 
             // buttonBuy
             // 
@@ -154,18 +134,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonBuy);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.SelectedView);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelFT);
             this.Controls.Add(this.labelOsszes);
             this.Controls.Add(this.ButtonAdd);
-            this.Controls.Add(this.labelHUF);
-            this.Controls.Add(this.labelVALUE);
             this.Controls.Add(this.textBoxVALUE);
             this.Controls.Add(this.comboBox1);
             this.Name = "Valutavaltas";
             this.Size = new System.Drawing.Size(817, 528);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,13 +153,11 @@
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBoxVALUE;
-        private System.Windows.Forms.Label labelVALUE;
-        private System.Windows.Forms.Label labelHUF;
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.Label labelOsszes;
         private System.Windows.Forms.Label labelFT;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView SelectedView;
         private System.Windows.Forms.Button buttonBuy;
         private System.Windows.Forms.Button buttonDelete;
     }
