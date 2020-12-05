@@ -19,6 +19,9 @@ namespace IRF_Project_GQOTXA
         {
             InitializeComponent();
             labelEmail.Text = email;
+            Random rnd = new Random();
+            int osszeg = (rnd.Next(1000, 50000)*100);
+            InvisibleLabel.Text = osszeg.ToString();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -31,6 +34,13 @@ namespace IRF_Project_GQOTXA
             Arfolyamok af = new Arfolyamok();
             panel1.Controls.Clear();
             panel1.Controls.Add(af);
+        }
+
+        private void buttonValuta_Click(object sender, EventArgs e)
+        {
+            Valutavaltas v = new Valutavaltas(InvisibleLabel.Text);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(v);
         }
     }
 }

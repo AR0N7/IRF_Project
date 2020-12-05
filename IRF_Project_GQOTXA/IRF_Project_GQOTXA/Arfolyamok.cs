@@ -21,10 +21,10 @@ namespace IRF_Project_GQOTXA
         {
             InitializeComponent();
             labelTime.Text= DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
-            WebszolgaltatashivasaTest();
+            JelenlegiArfolyamok();
         }
 
-        public void WebszolgaltatashivasaTest()
+        public void JelenlegiArfolyamok()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
 
@@ -36,10 +36,10 @@ namespace IRF_Project_GQOTXA
 
             dataGridView1.DataSource = Rates;
 
-            xmltest(result);
+            GetXML(result);
         }
 
-        public void xmltest(string result)
+        public void GetXML(string result)
         {
             var xml = new XmlDocument();
             xml.LoadXml(result);
@@ -73,7 +73,7 @@ namespace IRF_Project_GQOTXA
         {
             //rendesen megcsinálni!!!!
             labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm");
-            WebszolgaltatashivasaTest();
+            JelenlegiArfolyamok();
         }
     }
 }

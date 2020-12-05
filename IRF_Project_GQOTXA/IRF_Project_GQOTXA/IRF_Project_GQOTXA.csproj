@@ -66,12 +66,6 @@
     <Compile Include="Kezdolap.Designer.cs">
       <DependentUpon>Kezdolap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teszt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Teszt.Designer.cs">
-      <DependentUpon>Teszt.cs</DependentUpon>
-    </Compile>
     <Compile Include="Nyitooldal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +74,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Valutavaltas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Valutavaltas.Designer.cs">
+      <DependentUpon>Valutavaltas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Arfolyamok.resx">
       <DependentUpon>Arfolyamok.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Teszt.resx">
-      <DependentUpon>Teszt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kezdolap.resx">
       <DependentUpon>Kezdolap.cs</DependentUpon>
@@ -101,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Valutavaltas.resx">
+      <DependentUpon>Valutavaltas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\MnbServiceReference\arfolyamok.wsdl" />
     <None Include="Connected Services\MnbServiceReference\arfolyamok.xsd">
       <SubType>Designer</SubType>

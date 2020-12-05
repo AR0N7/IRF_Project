@@ -52,7 +52,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 628);
+            this.dataGridView1.Size = new System.Drawing.Size(383, 500);
             this.dataGridView1.TabIndex = 1;
             // 
             // labelTime

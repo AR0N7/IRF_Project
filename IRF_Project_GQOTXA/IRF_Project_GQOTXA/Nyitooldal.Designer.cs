@@ -33,11 +33,13 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonValuta = new System.Windows.Forms.Button();
+            this.InvisibleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonArfolyamok
             // 
-            this.buttonArfolyamok.Location = new System.Drawing.Point(12, 84);
+            this.buttonArfolyamok.Location = new System.Drawing.Point(12, 153);
             this.buttonArfolyamok.Name = "buttonArfolyamok";
             this.buttonArfolyamok.Size = new System.Drawing.Size(123, 54);
             this.buttonArfolyamok.TabIndex = 0;
@@ -86,11 +88,32 @@
             this.panel1.Size = new System.Drawing.Size(866, 461);
             this.panel1.TabIndex = 4;
             // 
+            // buttonValuta
+            // 
+            this.buttonValuta.Location = new System.Drawing.Point(12, 75);
+            this.buttonValuta.Name = "buttonValuta";
+            this.buttonValuta.Size = new System.Drawing.Size(123, 54);
+            this.buttonValuta.TabIndex = 5;
+            this.buttonValuta.Text = "Valutaváltás";
+            this.buttonValuta.UseVisualStyleBackColor = true;
+            this.buttonValuta.Click += new System.EventHandler(this.buttonValuta_Click);
+            // 
+            // InvisibleLabel
+            // 
+            this.InvisibleLabel.AutoSize = true;
+            this.InvisibleLabel.Location = new System.Drawing.Point(12, 522);
+            this.InvisibleLabel.Name = "InvisibleLabel";
+            this.InvisibleLabel.Size = new System.Drawing.Size(129, 17);
+            this.InvisibleLabel.TabIndex = 6;
+            this.InvisibleLabel.Text = "LáthatatlanLegyen!";
+            // 
             // Nyitooldal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 548);
+            this.Controls.Add(this.InvisibleLabel);
+            this.Controls.Add(this.buttonValuta);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelTitle);
@@ -110,5 +133,7 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonValuta;
+        private System.Windows.Forms.Label InvisibleLabel;
     }
 }
