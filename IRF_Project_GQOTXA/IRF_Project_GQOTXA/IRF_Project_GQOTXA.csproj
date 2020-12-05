@@ -48,22 +48,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arfolyamok.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Arfolyamok.Designer.cs">
+      <DependentUpon>Arfolyamok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\MnbServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Entities\Adatok.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Kezdolap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Kezdolap.Designer.cs">
+      <DependentUpon>Kezdolap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teszt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teszt.Designer.cs">
+      <DependentUpon>Teszt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nyitooldal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nyitooldal.Designer.cs">
+      <DependentUpon>Nyitooldal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Arfolyamok.resx">
+      <DependentUpon>Arfolyamok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teszt.resx">
+      <DependentUpon>Teszt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kezdolap.resx">
+      <DependentUpon>Kezdolap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nyitooldal.resx">
+      <DependentUpon>Nyitooldal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
