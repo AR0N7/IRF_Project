@@ -20,86 +20,86 @@ namespace IRF_Project_GQOTXA
         public Teszt()
         {
             InitializeComponent();
-            currenciesTest();
+            //currenciesTest();
         }
 
-        public void currenciesTest()
-        {
-            comboBox1.Items.Clear();
+        //        public void currenciesTest()
+        //        {
+        //            comboBox1.Items.Clear();
 
-            var mnbService = new MNBArfolyamServiceSoapClient();
+        //            var mnbService = new MNBArfolyamServiceSoapClient();
 
-            var request = new GetCurrenciesRequestBody();
+        //            var request = new GetCurrenciesRequestBody();
 
-            var response = mnbService.GetCurrencies(request);
+        //            var response = mnbService.GetCurrencies(request);
 
-            string result = response.GetCurrenciesResult;
+        //            string result = response.GetCurrenciesResult;
 
-            int currCounter = 1;
+        //            int currCounter = 1;
 
-            var xml = new XmlDocument();
-            xml.LoadXml(result);
+        //            var xml = new XmlDocument();
+        //            xml.LoadXml(result);
 
-            XmlNodeList nodes = xml.SelectNodes("/MNBCurrencies/Currencies/Curr");
+        //            XmlNodeList nodes = xml.SelectNodes("/MNBCurrencies/Currencies/Curr");
 
-            foreach (XmlNode xn in nodes)
-            {
-                string Valuta = xn.InnerText;
-                comboBox1.Items.Add(Valuta);
-                currCounter++;
-            }
+        //            foreach (XmlNode xn in nodes)
+        //            {
+        //                string Valuta = xn.InnerText;
+        //                comboBox1.Items.Add(Valuta);
+        //                currCounter++;
+        //            }
 
-            WebszolgaltatashivasaTest(currCounter);
+        //            WebszolgaltatashivasaTest(currCounter);
 
-        }
+        //        }
 
-        public void WebszolgaltatashivasaTest(int currCnt)
-        {
-            var mnbService = new MNBArfolyamServiceSoapClient();
+        //        public void WebszolgaltatashivasaTest(int currCnt)
+        //        {
+        //            var mnbService = new MNBArfolyamServiceSoapClient();
 
-            var request = new GetCurrentExchangeRatesRequestBody();
+        //            var request = new GetCurrentExchangeRatesRequestBody();
 
-            var response = mnbService.GetCurrentExchangeRates(request);
+        //            var response = mnbService.GetCurrentExchangeRates(request);
 
-            var result = response.GetCurrentExchangeRatesResult;
+        //            var result = response.GetCurrentExchangeRatesResult;
 
-            dataGridView1.DataSource = Rates;
+        //            dataGridView1.DataSource = Rates;
 
-            xmltest(result, currCnt);
-        }
+        //            xmltest(result, currCnt);
+        //        }
 
-        public void xmltest(string result, int currCnt)
-        {
-            var xml = new XmlDocument();
-            xml.LoadXml(result);
+        //        public void xmltest(string result, int currCnt)
+        //        {
+        //            var xml = new XmlDocument();
+        //            xml.LoadXml(result);
 
-            foreach (XmlElement element in xml.DocumentElement)
-            {
+        //            foreach (XmlElement element in xml.DocumentElement)
+        //            {
 
-                for (int child = 0; child <= currCnt; child++)
-                {
-                    var rate = new Adatok();
+        //                //for (int child = 0; child <= currCnt; child++)
+        //                //{
+        //                //    var rate = new Adatok();
 
-                    rate.Date = DateTime.Parse(element.GetAttribute("date"));
-
-
-                    var childElement = (XmlElement)element.ChildNodes[child];
-                    if (childElement == null)
-                    {
-                        continue;
-                    }
-                    rate.Currency = childElement.GetAttribute("curr");
+        //                //    rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
 
-                    var unit = decimal.Parse(childElement.GetAttribute("unit"));
-                    var value = decimal.Parse(childElement.InnerText);
-                    if (unit != 0)
-                        rate.Value = value / unit;
+        //                //    var childElement = (XmlElement)element.ChildNodes[child];
+        //                //    if (childElement == null)
+        //                //    {
+        //                //        continue;
+        //                //    }
+        //                //    rate.Currency = childElement.GetAttribute("curr");
 
-                    Rates.Add(rate);
-                }
 
-            }
-        }
+        //                //    var unit = decimal.Parse(childElement.GetAttribute("unit"));
+        //                //    var value = decimal.Parse(childElement.InnerText);
+        //                //    if (unit != 0)
+        //                //        rate.Value = value / unit;
+
+        //                //    Rates.Add(rate);
+        //                }
+
+        //            }
+        //        }
     }
 }

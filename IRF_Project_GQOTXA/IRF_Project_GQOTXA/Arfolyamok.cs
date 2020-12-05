@@ -20,7 +20,7 @@ namespace IRF_Project_GQOTXA
         public Arfolyamok()
         {
             InitializeComponent();
-            labelTime.Text= DateTime.Now.ToString();
+            labelTime.Text= DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
             WebszolgaltatashivasaTest();
         }
 
@@ -46,55 +46,34 @@ namespace IRF_Project_GQOTXA
 
             foreach (XmlElement element in xml.DocumentElement)
             {
-                int child = 0;
-
-                do
+                for (int child = 0; child <= 100; child++)
                 {
                     var rate = new Adatok();
-
-                    rate.Date = DateTime.Parse(element.GetAttribute("date"));
-
 
                     var childElement = (XmlElement)element.ChildNodes[child];
                     if (childElement == null)
                     {
                         continue;
                     }
-                    rate.Currency = childElement.GetAttribute("curr");
+                    rate.Valuta = childElement.GetAttribute("curr");
 
 
                     var unit = decimal.Parse(childElement.GetAttribute("unit"));
                     var value = decimal.Parse(childElement.InnerText);
                     if (unit != 0)
-                        rate.Value = value / unit;
+                        rate.Árfolyam = value / unit;
 
                     Rates.Add(rate);
-                } while (child < 100);
-
-                //for (int child = 0; child <= currCnt; child++)
-                //{
-                //    var rate = new Adatok();
-
-                //    rate.Date = DateTime.Parse(element.GetAttribute("date"));
-
-
-                //    var childElement = (XmlElement)element.ChildNodes[child];
-                //    if (childElement == null)
-                //    {
-                //        continue;
-                //    }
-                //    rate.Currency = childElement.GetAttribute("curr");
-
-
-                //    var unit = decimal.Parse(childElement.GetAttribute("unit"));
-                //    var value = decimal.Parse(childElement.InnerText);
-                //    if (unit != 0)
-                //        rate.Value = value / unit;
-
-                //    Rates.Add(rate);
-                //}
+                }
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //rendesen megcsinálni!!!!
+            labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm");
+            WebszolgaltatashivasaTest();
         }
     }
 }

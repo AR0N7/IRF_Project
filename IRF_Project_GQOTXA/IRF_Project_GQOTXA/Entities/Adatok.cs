@@ -8,8 +8,7 @@ namespace IRF_Project_GQOTXA.Entities
 {
     public class Adatok
     {
-        public DateTime Date { get; set; }
-        public string Currency { get; set; }
-        public decimal Value { get; set; }
+        public string Valuta { get; set; }
+        public decimal Árfolyam { get; set; }
     }
 }
