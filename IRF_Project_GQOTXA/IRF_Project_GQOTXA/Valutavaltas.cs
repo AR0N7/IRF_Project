@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -115,7 +116,32 @@ namespace IRF_Project_GQOTXA
         private void buttonBuy_Click(object sender, EventArgs e)
         {
             //Legyen elég összeg azt validálja
-            //MessageBox sikeres vásárlás, after Unit test
+
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.Filter = "Comma Separated Values (*.csv)|*.csv";  //Kiválasztható formátumok
+            sfd.DefaultExt = "csv"; //Alapértelmezetten csv-be menti
+            sfd.AddExtension = true; //Hozzáadja a kiterjesztést
+            sfd.FileName = DateTime.Now.ToString("yyyy-MM-dd"); //Alapértelmezett filenév a mai dátum
+
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                foreach (var v in Ertekek)
+                {
+                    sw.Write(v.Valuta);
+                    sw.Write(";");
+                    sw.Write(v.Árfolyam);
+                    sw.Write(";");
+                    sw.Write(v.Mennyiség);
+                    sw.Write(";");
+                    sw.Write(v.Érték);
+                    sw.WriteLine();
+                }
+            }
+
+            //MessageBox sikeres / sikertelen vásárlás, after Unit test
             //"Sikeres vásárlás, a tételek listáját megtalálja egy letöltött csv-ben"
         }
 
