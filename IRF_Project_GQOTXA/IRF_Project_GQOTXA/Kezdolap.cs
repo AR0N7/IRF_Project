@@ -28,7 +28,7 @@ namespace IRF_Project_GQOTXA
 
         private void buttonGO_Click(object sender, EventArgs e)
         {
-            //Belépési adatok ellenőrzése
+            //Belépési adatok ellenőrzése (Unit test)
             Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text);
             ny.ShowDialog();
         }

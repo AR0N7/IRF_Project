@@ -59,7 +59,6 @@ namespace IRF_Project_GQOTXA
             }
             else
             {
-                //Ha nem találja a beírt valutakódot, akkor "Nem található valuta"
                 GetValues();
             }
         }
@@ -92,12 +91,12 @@ namespace IRF_Project_GQOTXA
             foreach (XmlElement element in xml.DocumentElement)
             {
                 var rate2 = new AddedValues();
-                Ertekek.Add(rate2);
 
                 var childElement = (XmlElement)element.ChildNodes[0];
                 if (childElement == null)
                 {
-                    continue;
+                    MessageBox.Show("A kiválasztott valuta nem elérhető!");
+                    return;
                 }
                 rate2.Valuta = childElement.GetAttribute("curr");
 
@@ -110,44 +109,89 @@ namespace IRF_Project_GQOTXA
                 rate2.Mennyiség = int.Parse(textBoxVALUE.Text);
 
                 rate2.Érték = (rate2.Árfolyam * rate2.Mennyiség);
+
+                Ertekek.Add(rate2);
+
+                labelOsszes.Text = (decimal.Parse(labelOsszes.Text) - rate2.Érték).ToString();
+                if (decimal.Parse(labelOsszes.Text) < 0)
+                {
+                    labelOsszes.ForeColor = Color.Red;
+                }
             }
         }
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
-            //Legyen elég összeg azt validálja
-
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.Filter = "Comma Separated Values (*.csv)|*.csv";  //Kiválasztható formátumok
-            sfd.DefaultExt = "csv"; //Alapértelmezetten csv-be menti
-            sfd.AddExtension = true; //Hozzáadja a kiterjesztést
-            sfd.FileName = DateTime.Now.ToString("yyyy-MM-dd"); //Alapértelmezett filenév a mai dátum
-
-            if (sfd.ShowDialog() != DialogResult.OK) return;
-
-            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            if (decimal.Parse(labelOsszes.Text) < 0)
             {
-                foreach (var v in Ertekek)
+                MessageBox.Show("A megadott valuták ára meghaladja az Ön elérhető egyenlegét! Kérjük töltsön fel többet vagy töröljön a kosarából a Törlés gombbal!");
+            }
+            else
+            {
+                if (Ertekek.Count<1)
                 {
-                    sw.Write(v.Valuta);
-                    sw.Write(";");
-                    sw.Write(v.Árfolyam);
-                    sw.Write(";");
-                    sw.Write(v.Mennyiség);
-                    sw.Write(";");
-                    sw.Write(v.Érték);
-                    sw.WriteLine();
+                    MessageBox.Show("Kérjük adjon elemet a kosarához!");
+                }
+                else
+                {
+                    SaveFileDialog sfd = new SaveFileDialog();
+
+                    sfd.Filter = "Comma Separated Values (*.csv)|*.csv";  //Kiválasztható formátumok
+                    sfd.DefaultExt = "csv"; //Alapértelmezetten csv-be menti
+                    sfd.AddExtension = true; //Hozzáadja a kiterjesztést
+                    sfd.FileName = DateTime.Now.ToString("yyyy-MM-dd"); //Alapértelmezett filenév a mai dátum
+
+                    if (sfd.ShowDialog() != DialogResult.OK) return;
+
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                    {
+                        //Fejléc
+                        sw.Write("Valuta");
+                        sw.Write(";");
+                        sw.Write("Árfolyam");
+                        sw.Write(";");
+                        sw.Write("Mennyiség");
+                        sw.Write(";");
+                        sw.Write("Érték");
+                        sw.WriteLine();
+
+                        foreach (var v in Ertekek)
+                        {
+                            sw.Write(v.Valuta);
+                            sw.Write(";");
+                            sw.Write(v.Árfolyam);
+                            sw.Write(";");
+                            sw.Write(v.Mennyiség);
+                            sw.Write(";");
+                            sw.Write(v.Érték);
+                            sw.WriteLine();
+                        }
+                    }
+
+                    MessageBox.Show("Sikeres vásárlás! A megvásárolt valuták összesítőjét megtalálja a kiválasztott elérési úton.");
                 }
             }
-
-            //MessageBox sikeres / sikertelen vásárlás, after Unit test
-            //"Sikeres vásárlás, a tételek listáját megtalálja egy letöltött csv-ben"
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            
+            if (Ertekek.Count>0)
+            {
+                var v = Ertekek.ElementAt(Ertekek.Count - 1);
+
+                labelOsszes.Text = (decimal.Parse(labelOsszes.Text) + v.Érték).ToString();
+                if (decimal.Parse(labelOsszes.Text) < 0)
+                {
+                    labelOsszes.ForeColor = Color.Red;
+                }
+                else
+                {
+                    labelOsszes.ForeColor = DefaultForeColor;
+                }
+
+                Ertekek.Remove(v);
+                SelectedView.Refresh();  
+            }
         }
 
         private void textBoxVALUE_Validating(object sender, CancelEventArgs e)
@@ -174,7 +218,7 @@ namespace IRF_Project_GQOTXA
         {
             //UNIT TEST IDE!!!
 
-            Regex r = new Regex(@"[A-Z]{3}");
+            Regex r = new Regex("^([A-Z]{3})$");
             if (r.IsMatch(comboBox1.Text))
             {
                 e.Cancel = false;

@@ -22,6 +22,7 @@ namespace IRF_Project_GQOTXA
             InitializeComponent();
             labelTime.Text= DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
             JelenlegiArfolyamok();
+            timer1.Start();
         }
 
         public void JelenlegiArfolyamok()
@@ -71,8 +72,7 @@ namespace IRF_Project_GQOTXA
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //rendesen megcsinálni!!!!
-            labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm");
+            labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
             JelenlegiArfolyamok();
         }
     }

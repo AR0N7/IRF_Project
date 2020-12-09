@@ -106,6 +106,7 @@
             this.InvisibleLabel.Size = new System.Drawing.Size(129, 17);
             this.InvisibleLabel.TabIndex = 6;
             this.InvisibleLabel.Text = "LáthatatlanLegyen!";
+            this.InvisibleLabel.Visible = false;
             // 
             // Nyitooldal
             // 
