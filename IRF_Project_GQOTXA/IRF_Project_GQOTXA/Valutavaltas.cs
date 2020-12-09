@@ -24,6 +24,7 @@ namespace IRF_Project_GQOTXA
             InitializeComponent();
             Valutak();
             labelOsszes.Text = osszeg;
+            labelMess.Visible = false;
         }
 
         public void Valutak()
@@ -168,6 +169,9 @@ namespace IRF_Project_GQOTXA
                         }
                     }
 
+                    buttonBuy.Enabled = false;
+                    labelMess.Visible = true;
+                    timer1.Start();
                     MessageBox.Show("Sikeres vásárlás! A megvásárolt valuták összesítőjét megtalálja a kiválasztott elérési úton.");
                 }
             }
@@ -244,6 +248,12 @@ namespace IRF_Project_GQOTXA
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             this.Validate();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            buttonBuy.Enabled = true;
+            labelMess.Visible = false;
         }
     }
 }
