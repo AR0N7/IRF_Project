@@ -81,6 +81,12 @@
     </Compile>
     <Compile Include="Entities\Adatok.cs" />
     <Compile Include="Entities\AddedValues.cs" />
+    <Compile Include="Jelszocsere.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Jelszocsere.Designer.cs">
+      <DependentUpon>Jelszocsere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kezdolap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="Arfolyamok.resx">
       <DependentUpon>Arfolyamok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jelszocsere.resx">
+      <DependentUpon>Jelszocsere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kezdolap.resx">
       <DependentUpon>Kezdolap.cs</DependentUpon>

@@ -15,15 +15,15 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Nyitooldal : Form
     {
-        public Nyitooldal(string email)
+        public Nyitooldal(string email, string password)
         {
+            MessageBox.Show("Kérjük első belépés után változtassa meg a jelszavát!");
             InitializeComponent();
             labelEmail.Text = email;
             Random rnd = new Random();
             decimal osszeg = (rnd.Next(1000, 50000)*100);
             InvisibleLabel.Text = osszeg.ToString();
-            InvisibleLabel.BackColor = Nyitooldal.DefaultBackColor;
-            InvisibleLabel.ForeColor = Nyitooldal.DefaultBackColor;
+            Passwordlabel.Text = password;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -43,6 +43,13 @@ namespace IRF_Project_GQOTXA
             Valutavaltas v = new Valutavaltas(InvisibleLabel.Text);
             panel1.Controls.Clear();
             panel1.Controls.Add(v);
+        }
+
+        private void buttonPwChange_Click(object sender, EventArgs e)
+        {
+            Jelszocsere jcs = new Jelszocsere(Passwordlabel.Text);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(jcs);
         }
     }
 }

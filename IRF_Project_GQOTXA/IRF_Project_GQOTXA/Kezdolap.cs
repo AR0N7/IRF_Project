@@ -29,8 +29,13 @@ namespace IRF_Project_GQOTXA
         private void buttonGO_Click(object sender, EventArgs e)
         {
             //Belépési adatok ellenőrzése (Unit test)
-            Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text);
+            Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text, textBoxPASSWORD.Text);
             ny.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kérjük adja meg az email címét és a bankjától kapott jelszót!");
         }
     }
 }

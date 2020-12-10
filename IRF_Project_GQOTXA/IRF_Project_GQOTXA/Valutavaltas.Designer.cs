@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBoxVALUE = new System.Windows.Forms.TextBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
@@ -38,8 +37,6 @@
             this.SelectedView = new System.Windows.Forms.DataGridView();
             this.buttonBuy = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelMess = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,26 +128,10 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 3600000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // labelMess
-            // 
-            this.labelMess.AutoSize = true;
-            this.labelMess.ForeColor = System.Drawing.Color.Red;
-            this.labelMess.Location = new System.Drawing.Point(347, 343);
-            this.labelMess.Name = "labelMess";
-            this.labelMess.Size = new System.Drawing.Size(425, 17);
-            this.labelMess.TabIndex = 11;
-            this.labelMess.Text = "Sajnáljuk, de két vásárlás között el kell telnie legalább egy órának!";
-            // 
             // Valutavaltas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelMess);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonBuy);
             this.Controls.Add(this.SelectedView);
@@ -179,7 +160,5 @@
         private System.Windows.Forms.DataGridView SelectedView;
         private System.Windows.Forms.Button buttonBuy;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label labelMess;
     }
 }

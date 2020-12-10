@@ -36,6 +36,7 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonGO = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelEMAIL
@@ -74,16 +75,16 @@
             // 
             // textBoxPASSWORD
             // 
-            this.textBoxPASSWORD.Location = new System.Drawing.Point(261, 211);
+            this.textBoxPASSWORD.Location = new System.Drawing.Point(261, 208);
             this.textBoxPASSWORD.Name = "textBoxPASSWORD";
             this.textBoxPASSWORD.Size = new System.Drawing.Size(252, 22);
             this.textBoxPASSWORD.TabIndex = 4;
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(171, 341);
+            this.buttonClose.Location = new System.Drawing.Point(194, 273);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(101, 37);
+            this.buttonClose.Size = new System.Drawing.Size(150, 37);
             this.buttonClose.TabIndex = 5;
             this.buttonClose.Text = "Mégse";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -91,9 +92,9 @@
             // 
             // buttonGO
             // 
-            this.buttonGO.Location = new System.Drawing.Point(466, 341);
+            this.buttonGO.Location = new System.Drawing.Point(392, 273);
             this.buttonGO.Name = "buttonGO";
-            this.buttonGO.Size = new System.Drawing.Size(101, 37);
+            this.buttonGO.Size = new System.Drawing.Size(150, 37);
             this.buttonGO.TabIndex = 6;
             this.buttonGO.Text = "Belépés";
             this.buttonGO.UseVisualStyleBackColor = true;
@@ -109,11 +110,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Made by Tompai Áron";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(539, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "?";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Kezdolap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 538);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonGO);
             this.Controls.Add(this.buttonClose);
@@ -123,7 +135,7 @@
             this.Controls.Add(this.labelPASSWORD);
             this.Controls.Add(this.labelEMAIL);
             this.Name = "Kezdolap";
-            this.Text = "Form1";
+            this.Text = "Bejelentkezés";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +151,7 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonGO;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

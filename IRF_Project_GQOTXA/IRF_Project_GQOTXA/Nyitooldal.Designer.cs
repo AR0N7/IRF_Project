@@ -35,6 +35,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonValuta = new System.Windows.Forms.Button();
             this.InvisibleLabel = new System.Windows.Forms.Label();
+            this.buttonPwChange = new System.Windows.Forms.Button();
+            this.Passwordlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonArfolyamok
@@ -108,11 +110,33 @@
             this.InvisibleLabel.Text = "LáthatatlanLegyen!";
             this.InvisibleLabel.Visible = false;
             // 
+            // buttonPwChange
+            // 
+            this.buttonPwChange.Location = new System.Drawing.Point(12, 231);
+            this.buttonPwChange.Name = "buttonPwChange";
+            this.buttonPwChange.Size = new System.Drawing.Size(123, 54);
+            this.buttonPwChange.TabIndex = 7;
+            this.buttonPwChange.Text = "Jelszó megváltoztatása";
+            this.buttonPwChange.UseVisualStyleBackColor = true;
+            this.buttonPwChange.Click += new System.EventHandler(this.buttonPwChange_Click);
+            // 
+            // Passwordlabel
+            // 
+            this.Passwordlabel.AutoSize = true;
+            this.Passwordlabel.Location = new System.Drawing.Point(12, 522);
+            this.Passwordlabel.Name = "Passwordlabel";
+            this.Passwordlabel.Size = new System.Drawing.Size(129, 17);
+            this.Passwordlabel.TabIndex = 8;
+            this.Passwordlabel.Text = "LáthatatlanLegyen!";
+            this.Passwordlabel.Visible = false;
+            // 
             // Nyitooldal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 548);
+            this.Controls.Add(this.Passwordlabel);
+            this.Controls.Add(this.buttonPwChange);
             this.Controls.Add(this.InvisibleLabel);
             this.Controls.Add(this.buttonValuta);
             this.Controls.Add(this.panel1);
@@ -121,7 +145,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonArfolyamok);
             this.Name = "Nyitooldal";
-            this.Text = "Nyitooldal";
+            this.Text = "Kezdőlap";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +160,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonValuta;
         private System.Windows.Forms.Label InvisibleLabel;
+        private System.Windows.Forms.Button buttonPwChange;
+        private System.Windows.Forms.Label Passwordlabel;
     }
 }
