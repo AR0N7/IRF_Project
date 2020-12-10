@@ -41,42 +41,50 @@
             // 
             // buttonArfolyamok
             // 
+            this.buttonArfolyamok.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonArfolyamok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonArfolyamok.Location = new System.Drawing.Point(12, 153);
             this.buttonArfolyamok.Name = "buttonArfolyamok";
-            this.buttonArfolyamok.Size = new System.Drawing.Size(123, 54);
+            this.buttonArfolyamok.Size = new System.Drawing.Size(172, 54);
             this.buttonArfolyamok.TabIndex = 0;
             this.buttonArfolyamok.Text = "Árfolyamok";
-            this.buttonArfolyamok.UseVisualStyleBackColor = true;
+            this.buttonArfolyamok.UseVisualStyleBackColor = false;
             this.buttonArfolyamok.Click += new System.EventHandler(this.buttonArfolyamok_Click);
             // 
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(902, 12);
+            this.buttonClose.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonClose.ForeColor = System.Drawing.Color.Red;
+            this.buttonClose.Location = new System.Drawing.Point(1050, 12);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(120, 53);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.Text = "Bezárás";
-            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // labelTitle
             // 
             this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(402, 12);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTitle.ForeColor = System.Drawing.Color.Yellow;
+            this.labelTitle.Location = new System.Drawing.Point(451, 12);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(114, 17);
+            this.labelTitle.Size = new System.Drawing.Size(298, 39);
             this.labelTitle.TabIndex = 2;
-            this.labelTitle.Text = "Alkalmazás neve";
+            this.labelTitle.Text = "Online Valutaváltó";
             // 
             // labelEmail
             // 
-            this.labelEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(435, 39);
+            this.labelEmail.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelEmail.ForeColor = System.Drawing.Color.Yellow;
+            this.labelEmail.Location = new System.Drawing.Point(12, 30);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(42, 17);
+            this.labelEmail.Size = new System.Drawing.Size(39, 17);
             this.labelEmail.TabIndex = 3;
             this.labelEmail.Text = "Email";
             // 
@@ -85,19 +93,22 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(156, 75);
+            this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.Location = new System.Drawing.Point(190, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(866, 461);
+            this.panel1.Size = new System.Drawing.Size(980, 461);
             this.panel1.TabIndex = 4;
             // 
             // buttonValuta
             // 
+            this.buttonValuta.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonValuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonValuta.Location = new System.Drawing.Point(12, 75);
             this.buttonValuta.Name = "buttonValuta";
-            this.buttonValuta.Size = new System.Drawing.Size(123, 54);
+            this.buttonValuta.Size = new System.Drawing.Size(172, 54);
             this.buttonValuta.TabIndex = 5;
             this.buttonValuta.Text = "Valutaváltás";
-            this.buttonValuta.UseVisualStyleBackColor = true;
+            this.buttonValuta.UseVisualStyleBackColor = false;
             this.buttonValuta.Click += new System.EventHandler(this.buttonValuta_Click);
             // 
             // InvisibleLabel
@@ -112,17 +123,20 @@
             // 
             // buttonPwChange
             // 
+            this.buttonPwChange.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonPwChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonPwChange.Location = new System.Drawing.Point(12, 231);
             this.buttonPwChange.Name = "buttonPwChange";
-            this.buttonPwChange.Size = new System.Drawing.Size(123, 54);
+            this.buttonPwChange.Size = new System.Drawing.Size(172, 70);
             this.buttonPwChange.TabIndex = 7;
             this.buttonPwChange.Text = "Jelszó megváltoztatása";
-            this.buttonPwChange.UseVisualStyleBackColor = true;
+            this.buttonPwChange.UseVisualStyleBackColor = false;
             this.buttonPwChange.Click += new System.EventHandler(this.buttonPwChange_Click);
             // 
             // Passwordlabel
             // 
             this.Passwordlabel.AutoSize = true;
+            this.Passwordlabel.ForeColor = System.Drawing.Color.Navy;
             this.Passwordlabel.Location = new System.Drawing.Point(12, 522);
             this.Passwordlabel.Name = "Passwordlabel";
             this.Passwordlabel.Size = new System.Drawing.Size(129, 17);
@@ -134,7 +148,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 548);
+            this.BackColor = System.Drawing.Color.Navy;
+            this.ClientSize = new System.Drawing.Size(1182, 548);
             this.Controls.Add(this.Passwordlabel);
             this.Controls.Add(this.buttonPwChange);
             this.Controls.Add(this.InvisibleLabel);

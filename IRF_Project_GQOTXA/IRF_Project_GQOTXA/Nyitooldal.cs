@@ -17,10 +17,10 @@ namespace IRF_Project_GQOTXA
     {
         public Nyitooldal(string email, string password)
         {
-            MessageBox.Show("Kérjük első belépés után változtassa meg a jelszavát!");
+            MessageBox.Show("Kérjük első belépés után változtassa meg a jelszavát!", "Üdvözöljük!");
             InitializeComponent();
             labelEmail.Text = email;
-            Random rnd = new Random();
+            Random rnd = new Random();  //Véletlenszámgenerátor adja meg a felhasználható összeget
             decimal osszeg = (rnd.Next(1000, 50000)*100);
             InvisibleLabel.Text = osszeg.ToString();
             Passwordlabel.Text = password;
@@ -28,6 +28,7 @@ namespace IRF_Project_GQOTXA
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            //Kilépés
             this.Close();
         }
 

@@ -15,16 +15,18 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Arfolyamok : UserControl
     {
+        //Új binding list Adatok típusú elemekkel
         BindingList<Adatok> Rates = new BindingList<Adatok>();
 
         public Arfolyamok()
         {
             InitializeComponent();
-            labelTime.Text= DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
+            labelTime.Text= DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");  //Frissítés dátuma
             JelenlegiArfolyamok();
-            timer1.Start();
+            timer1.Start(); //Timer indítása
         }
 
+        //Aktuális árfolyamok lekérdezése
         public void JelenlegiArfolyamok()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
@@ -35,9 +37,9 @@ namespace IRF_Project_GQOTXA
 
             var result = response.GetCurrentExchangeRatesResult;
 
-            dataGridView1.DataSource = Rates;
+            dataGridView1.DataSource = Rates; //Betöltés datagridview-ba
 
-            GetXML(result);
+            GetXML(result); //XML feldolgozás
         }
 
         public void GetXML(string result)
@@ -45,6 +47,7 @@ namespace IRF_Project_GQOTXA
             var xml = new XmlDocument();
             xml.LoadXml(result);
 
+            //Minden egyes valutát hozzáadni a listába
             foreach (XmlElement element in xml.DocumentElement)
             {
                 for (int child = 0; child <= 100; child++)
@@ -70,9 +73,11 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //10 másodpercenként frissíti a listát
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
+            Rates.Clear();
             JelenlegiArfolyamok();
         }
     }

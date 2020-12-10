@@ -43,21 +43,21 @@
             // 
             // textBoxOld
             // 
-            this.textBoxOld.Location = new System.Drawing.Point(211, 69);
+            this.textBoxOld.Location = new System.Drawing.Point(261, 27);
             this.textBoxOld.Name = "textBoxOld";
             this.textBoxOld.Size = new System.Drawing.Size(219, 22);
             this.textBoxOld.TabIndex = 0;
             // 
             // textBoxNew1
             // 
-            this.textBoxNew1.Location = new System.Drawing.Point(211, 113);
+            this.textBoxNew1.Location = new System.Drawing.Point(261, 71);
             this.textBoxNew1.Name = "textBoxNew1";
             this.textBoxNew1.Size = new System.Drawing.Size(219, 22);
             this.textBoxNew1.TabIndex = 1;
             // 
             // textBoxNew2
             // 
-            this.textBoxNew2.Location = new System.Drawing.Point(211, 155);
+            this.textBoxNew2.Location = new System.Drawing.Point(261, 113);
             this.textBoxNew2.Name = "textBoxNew2";
             this.textBoxNew2.Size = new System.Drawing.Size(219, 22);
             this.textBoxNew2.TabIndex = 2;
@@ -65,44 +65,54 @@
             // Old
             // 
             this.Old.AutoSize = true;
-            this.Old.Location = new System.Drawing.Point(113, 72);
+            this.Old.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Old.ForeColor = System.Drawing.Color.Yellow;
+            this.Old.Location = new System.Drawing.Point(149, 27);
             this.Old.Name = "Old";
-            this.Old.Size = new System.Drawing.Size(77, 17);
+            this.Old.Size = new System.Drawing.Size(92, 20);
             this.Old.TabIndex = 3;
             this.Old.Text = "Régi jelszó";
             // 
             // New1
             // 
             this.New1.AutoSize = true;
-            this.New1.Location = new System.Drawing.Point(129, 116);
+            this.New1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.New1.ForeColor = System.Drawing.Color.Yellow;
+            this.New1.Location = new System.Drawing.Point(167, 71);
             this.New1.Name = "New1";
-            this.New1.Size = new System.Drawing.Size(61, 17);
+            this.New1.Size = new System.Drawing.Size(74, 20);
             this.New1.TabIndex = 4;
             this.New1.Text = "Új jelszó";
             // 
             // New2
             // 
             this.New2.AutoSize = true;
-            this.New2.Location = new System.Drawing.Point(92, 158);
+            this.New2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.New2.ForeColor = System.Drawing.Color.Yellow;
+            this.New2.Location = new System.Drawing.Point(121, 113);
             this.New2.Name = "New2";
-            this.New2.Size = new System.Drawing.Size(98, 17);
+            this.New2.Size = new System.Drawing.Size(120, 20);
             this.New2.TabIndex = 5;
             this.New2.Text = "Új jelszó ismét";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(253, 204);
+            this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(228, 161);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 49);
+            this.button1.Size = new System.Drawing.Size(152, 49);
             this.button1.TabIndex = 6;
             this.button1.Text = "Megváltoztatás";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(466, 69);
+            this.labelPassword.BackColor = System.Drawing.SystemColors.Control;
+            this.labelPassword.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelPassword.Location = new System.Drawing.Point(985, 14);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(69, 17);
             this.labelPassword.TabIndex = 7;
@@ -113,7 +123,7 @@
             // 
             this.labelMess.AutoSize = true;
             this.labelMess.ForeColor = System.Drawing.Color.Red;
-            this.labelMess.Location = new System.Drawing.Point(129, 280);
+            this.labelMess.Location = new System.Drawing.Point(116, 240);
             this.labelMess.Name = "labelMess";
             this.labelMess.Size = new System.Drawing.Size(364, 17);
             this.labelMess.TabIndex = 12;

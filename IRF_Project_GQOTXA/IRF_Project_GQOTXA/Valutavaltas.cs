@@ -17,6 +17,7 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Valutavaltas : UserControl
     {
+        //Új binding list, ami a kosárba rakott elemeket tartalmazza, AddedValues típusú
         BindingList<AddedValues> Ertekek = new BindingList<AddedValues>();
 
         public Valutavaltas(string osszeg)
@@ -26,6 +27,7 @@ namespace IRF_Project_GQOTXA
             labelOsszes.Text = osszeg;
         }
 
+        //Lekérdezi az összes elérhető valutát és betölti a comboboxba
         public void Valutak()
         {
             comboBox1.Items.Clear();
@@ -51,11 +53,12 @@ namespace IRF_Project_GQOTXA
 
         }
 
+        //Ha van megadott érték és valuta, hozzáadja a kosárhoz az elemeket
         public void ButtonAdd_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBoxVALUE.Text) | String.IsNullOrEmpty(comboBox1.Text))
             {
-                MessageBox.Show("Kérem töltse ki a kötelező részeket!");
+                MessageBox.Show("Kérem töltse ki a kötelező részeket!", "Hiba");
             }
             else
             {
@@ -63,6 +66,7 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //Lekérdezi a kiválasztott valuta aktuális árfolyamát
         public void GetValues()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
@@ -83,6 +87,7 @@ namespace IRF_Project_GQOTXA
             ReadXML(result2);
         }
 
+        //Feldolgozza az XML-t és hozzáadja a datagridview-hoz az adott sort
         public void ReadXML(string val)
         {
             var xml = new XmlDocument();
@@ -94,8 +99,8 @@ namespace IRF_Project_GQOTXA
 
                 var childElement = (XmlElement)element.ChildNodes[0];
                 if (childElement == null)
-                {
-                    MessageBox.Show("A kiválasztott valuta nem elérhető!");
+                { //Vannak olyan valuták, amikhez nem elérhető az árfolyam
+                    MessageBox.Show("A kiválasztott valuta nem elérhető!", "Hiba");
                     return;
                 }
                 rate2.Valuta = childElement.GetAttribute("curr");
@@ -112,6 +117,7 @@ namespace IRF_Project_GQOTXA
 
                 Ertekek.Add(rate2);
 
+                //Amennyiben nagyobb érték van a kosárban, mint az egyenlegünk, jelez
                 labelOsszes.Text = (decimal.Parse(labelOsszes.Text) - rate2.Érték).ToString();
                 if (decimal.Parse(labelOsszes.Text) < 0)
                 {
@@ -122,15 +128,15 @@ namespace IRF_Project_GQOTXA
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
-            if (decimal.Parse(labelOsszes.Text) < 0)
+            if (decimal.Parse(labelOsszes.Text) < 0) //Legyen elég egyenleg a vásárláshoz
             {
-                MessageBox.Show("A megadott valuták ára meghaladja az Ön elérhető egyenlegét! Kérjük töltsön fel többet vagy töröljön a kosarából a Törlés gombbal!");
+                MessageBox.Show("A megadott valuták ára meghaladja az Ön elérhető egyenlegét! Kérjük töltsön fel többet vagy töröljön a kosarából a Törlés gombbal!", "Hiba");
             }
             else
             {
-                if (Ertekek.Count<1)
+                if (Ertekek.Count<1) //Nem lehet üres a kosár
                 {
-                    MessageBox.Show("Kérjük adjon elemet a kosarához!");
+                    MessageBox.Show("Kérjük adjon elemet a kosarához!", "Hiba");
                 }
                 else
                 {
@@ -145,7 +151,7 @@ namespace IRF_Project_GQOTXA
 
                     using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                     {
-                        //Fejléc
+                        //Fejlécet felveszi
                         sw.Write("Valuta");
                         sw.Write(";");
                         sw.Write("Árfolyam");
@@ -155,6 +161,7 @@ namespace IRF_Project_GQOTXA
                         sw.Write("Érték");
                         sw.WriteLine();
 
+                        //Az összes sort felviszi a csv-be
                         foreach (var v in Ertekek)
                         {
                             sw.Write(v.Valuta);
@@ -167,13 +174,14 @@ namespace IRF_Project_GQOTXA
                             sw.WriteLine();
                         }
                     }
-                    MessageBox.Show("Sikeres vásárlás! A megvásárolt valuták összesítőjét megtalálja a kiválasztott elérési úton.");
+                    MessageBox.Show("Sikeres vásárlás! A megvásárolt valuták összesítőjét megtalálja a kiválasztott elérési úton.", "Siker");
                     Ertekek.Clear();
                     SelectedView.Refresh();
                 }
             }
         }
 
+        //Kitörli a legutoljára hozzáadott elemet
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (Ertekek.Count>0)
@@ -187,7 +195,7 @@ namespace IRF_Project_GQOTXA
                 }
                 else
                 {
-                    labelOsszes.ForeColor = DefaultForeColor;
+                    labelOsszes.ForeColor = Color.Yellow;
                 }
 
                 Ertekek.Remove(v);
@@ -195,6 +203,7 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //Csak számok írhatóak az összeghez
         private void textBoxVALUE_Validating(object sender, CancelEventArgs e)
         {
             int parsedValue;
@@ -215,6 +224,7 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //Csak három számjegyű kódok írhatóak a valutához
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
             //UNIT TEST IDE!!!
@@ -237,6 +247,7 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //Validálások
         private void textBoxVALUE_TextChanged(object sender, EventArgs e)
         {
             this.Validate();

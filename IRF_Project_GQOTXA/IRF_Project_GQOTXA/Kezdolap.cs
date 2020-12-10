@@ -23,6 +23,7 @@ namespace IRF_Project_GQOTXA
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            //Program bezárása
             this.Close();
         }
 
@@ -31,11 +32,14 @@ namespace IRF_Project_GQOTXA
             //Belépési adatok ellenőrzése (Unit test)
             Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text, textBoxPASSWORD.Text);
             ny.ShowDialog();
+            textBoxEMAIL.Clear();
+            textBoxPASSWORD.Clear();
         }
 
+        //Súgó
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Kérjük adja meg az email címét és a bankjától kapott jelszót!");
+            MessageBox.Show("Kérjük adja meg az email címét és a bankjától kapott jelszót!", "Súgó?");
         }
     }
 }

@@ -49,27 +49,31 @@
             // 
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(79, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(383, 460);
             this.dataGridView1.TabIndex = 1;
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(407, 60);
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTime.ForeColor = System.Drawing.Color.Yellow;
+            this.labelTime.Location = new System.Drawing.Point(518, 66);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(39, 17);
+            this.labelTime.Size = new System.Drawing.Size(53, 24);
             this.labelTime.TabIndex = 2;
             this.labelTime.Text = "Time";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(407, 24);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
+            this.label2.Location = new System.Drawing.Point(518, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 17);
+            this.label2.Size = new System.Drawing.Size(142, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Utoljára frissítve:";
             // 
