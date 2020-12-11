@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonArfolyamok = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.InvisibleLabel = new System.Windows.Forms.Label();
             this.buttonPwChange = new System.Windows.Forms.Button();
             this.Passwordlabel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.labelTimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonArfolyamok
@@ -82,7 +85,7 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelEmail.ForeColor = System.Drawing.Color.Yellow;
-            this.labelEmail.Location = new System.Drawing.Point(12, 30);
+            this.labelEmail.Location = new System.Drawing.Point(12, 48);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(39, 17);
             this.labelEmail.TabIndex = 3;
@@ -144,12 +147,28 @@
             this.Passwordlabel.Text = "LáthatatlanLegyen!";
             this.Passwordlabel.Visible = false;
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // labelTimer
+            // 
+            this.labelTimer.AutoSize = true;
+            this.labelTimer.ForeColor = System.Drawing.Color.Yellow;
+            this.labelTimer.Location = new System.Drawing.Point(12, 12);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Size = new System.Drawing.Size(44, 17);
+            this.labelTimer.TabIndex = 9;
+            this.labelTimer.Text = "Timer";
+            // 
             // Nyitooldal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
             this.ClientSize = new System.Drawing.Size(1182, 548);
+            this.Controls.Add(this.labelTimer);
             this.Controls.Add(this.Passwordlabel);
             this.Controls.Add(this.buttonPwChange);
             this.Controls.Add(this.InvisibleLabel);
@@ -177,5 +196,7 @@
         private System.Windows.Forms.Label InvisibleLabel;
         private System.Windows.Forms.Button buttonPwChange;
         private System.Windows.Forms.Label Passwordlabel;
+        private System.Windows.Forms.Label labelTimer;
+        public System.Windows.Forms.Timer timer;
     }
 }
