@@ -217,7 +217,7 @@ namespace IRF_Project_GQOTXA
             this.Validate();
         }
 
-        //Csak számok írhatóak az összeghez
+        //Csak számok írhatóak az összeg textboxba
         private void textBoxVALUE_Validating(object sender, CancelEventArgs e)
         {
             int parsedValue;
@@ -238,7 +238,7 @@ namespace IRF_Project_GQOTXA
             }
         }
 
-        //Csak három számjegyű kódok írhatóak a valutához
+        //Csak három számjegyű kódok írhatóak manuálisan a valuta comboboxba
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
             if (ValutaEllenorzes.ValidateCurrency(comboBox1.Text)==true)
