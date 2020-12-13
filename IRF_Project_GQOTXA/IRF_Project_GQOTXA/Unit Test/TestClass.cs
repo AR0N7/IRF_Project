@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IRF_Project_GQOTXA.Unit_Test
 {
-    public class AdatValidacio
+    public class TestClass
     {
         public bool ValidateEmail(string email)
         {
@@ -20,8 +20,15 @@ namespace IRF_Project_GQOTXA.Unit_Test
         {
             return Regex.IsMatch(
                 password,
-                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{10,}");
+                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}");
 
+        }
+
+        public bool ValidateCurrency(string curr)
+        {
+            return Regex.IsMatch(
+                curr,
+                @"^([A-Z]{3})$");
         }
     }
 }

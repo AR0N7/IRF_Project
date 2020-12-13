@@ -1,4 +1,5 @@
 ﻿using IRF_Project_GQOTXA.Entities;
+using IRF_Project_GQOTXA.Unit_Test;
 using IRF_Project_GQOTXA.MnbServiceReference;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Kezdolap : Form
     {
+        private TestClass Belepes = new TestClass();
+
         public Kezdolap()
         {
             InitializeComponent();
@@ -27,13 +30,20 @@ namespace IRF_Project_GQOTXA
             this.Close();
         }
 
-        private void buttonGO_Click(object sender, EventArgs e)
+        //Belépés függvény
+        public void buttonGO_Click(object sender, EventArgs e)
         {
-            //Belépési adatok ellenőrzése (Unit test)
-            Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text, textBoxPASSWORD.Text);
-            ny.ShowDialog();
-            textBoxEMAIL.Clear();
-            textBoxPASSWORD.Clear();
+            if (Belepes.ValidateEmail(textBoxEMAIL.Text)==false | Belepes.ValidatePassword(textBoxPASSWORD.Text)==false)
+            {
+                MessageBox.Show("Hibás email cím vagy jelszó!", "Sikertelen belépés");
+            }
+            else
+            {
+                Nyitooldal ny = new Nyitooldal(textBoxEMAIL.Text, textBoxPASSWORD.Text);
+                ny.ShowDialog();
+                textBoxEMAIL.Clear();
+                textBoxPASSWORD.Clear();
+            }
         }
 
         //Súgó

@@ -1,5 +1,6 @@
 ﻿using IRF_Project_GQOTXA.Entities;
 using IRF_Project_GQOTXA.MnbServiceReference;
+using IRF_Project_GQOTXA.Unit_Test;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace IRF_Project_GQOTXA
 {
     public partial class Valutavaltas : UserControl
     {
+        private TestClass ValutaEllenorzes = new TestClass();
+
         //Új binding list, ami a kosárba rakott elemeket tartalmazza, AddedValues típusú
         BindingList<AddedValues> Ertekek = new BindingList<AddedValues>();
 
@@ -203,6 +206,17 @@ namespace IRF_Project_GQOTXA
             }
         }
 
+        //Validálások
+        private void textBoxVALUE_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.Validate();
+        }
+
         //Csak számok írhatóak az összeghez
         private void textBoxVALUE_Validating(object sender, CancelEventArgs e)
         {
@@ -227,10 +241,7 @@ namespace IRF_Project_GQOTXA
         //Csak három számjegyű kódok írhatóak a valutához
         private void comboBox1_Validating(object sender, CancelEventArgs e)
         {
-            //UNIT TEST IDE!!!
-
-            Regex r = new Regex("^([A-Z]{3})$");
-            if (r.IsMatch(comboBox1.Text))
+            if (ValutaEllenorzes.ValidateCurrency(comboBox1.Text)==true)
             {
                 e.Cancel = false;
                 comboBox1.BackColor = Color.White;
@@ -245,17 +256,6 @@ namespace IRF_Project_GQOTXA
                 e.Cancel = false;
                 comboBox1.BackColor = Color.White;
             }
-        }
-
-        //Validálások
-        private void textBoxVALUE_TextChanged(object sender, EventArgs e)
-        {
-            this.Validate();
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-            this.Validate();
         }
     }
 }

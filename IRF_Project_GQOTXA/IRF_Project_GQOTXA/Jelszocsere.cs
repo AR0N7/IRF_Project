@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IRF_Project_GQOTXA.Unit_Test;
 
 namespace IRF_Project_GQOTXA
 {
     public partial class Jelszocsere : UserControl
     {
+        private TestClass NewPassword = new TestClass();
+
         public Jelszocsere(string password)
         {
             InitializeComponent();
@@ -32,13 +35,18 @@ namespace IRF_Project_GQOTXA
                 }
                 else
                 {
-                    //Sikeres, ha megfelel tesztnek az új jelszó
-
-                    labelPassword.Text = textBoxNew2.Text;
-                    button1.Enabled = false;
-                    labelMess.Visible = true;
-                    timer1.Start();
-                    MessageBox.Show("Sikeres jelszóváltoztatás!", "Siker");
+                    if (NewPassword.ValidatePassword(textBoxNew1.Text)==false)
+                    {
+                        MessageBox.Show("Az új jelszó nem megfelelő!", "Hiba");
+                    }
+                    else
+                    {
+                        labelPassword.Text = textBoxNew2.Text;
+                        button1.Enabled = false;
+                        labelMess.Visible = true;
+                        timer1.Start();
+                        MessageBox.Show("Sikeres jelszóváltoztatás!", "Siker");
+                    }
                 }
             }
             else
