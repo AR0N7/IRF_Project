@@ -20,7 +20,7 @@ namespace IRF_Project_GQOTXA.Unit_Test
         {
             return Regex.IsMatch(
                 password,
-                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}");
+                @"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*@$%&]).{8,32}$");
 
         }
 
