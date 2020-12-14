@@ -76,7 +76,7 @@ namespace IRF_Project_GQOTXA
         //10 másodpercenként frissíti a listát
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelTime.Text = DateTime.Now.ToString("yy.MM.dd. hh:mm:ss");
+            labelTime.Text = DateTime.Now.ToString("yyyy.MM.dd. hh:mm:ss");
             Rates.Clear();
             JelenlegiArfolyamok();
         }
