@@ -1,8 +1,13 @@
 # IRF_Project
 
-Egyelőre csak vázlatos:
+A program lényegében egy valutaváltó program, amelynek célja, hogy gyorsan, egyszerűen lehessen a bankban tárolt forint egyenlegünket számos más valutára váltani. Indításkor megjelenik egy bejelentkező felület, ahol meg kell adni egy e-mail címet és egy jelszót, amivel belép a felhasználó. Ezeknek természetesen meg kell felelniük a formai elvárásoknak, az e-mail cím esetében ez egyértelmű, a jelszó esetében ez legalább 8 karaktert jelent, amiben kötelező lennie kisbetűnek, nagybetűnek, számnak és egy különleges karakternek is.
 
-Az ötlet: Bejelentkezés után (unit test), MNB webszolgáltatást felhasználva (legalább egy új függvény), valamiféle valutaváltó app (xml), ahol lehet venni/eladni/kereskedni, stb, megfelelő időközökkel (timer) tranzakciók között. A végén a napi eredményt csv-be exportálni is lehet. Közben legyen több unit test is.
+Amennyiben sikeres a belépés, egy üzenet fogad, miszerint első belépéskor változtassuk meg a jelszavunkat, majd megjelenik a kezdőlap. A bal felső sarokban elindul automatikusan egy 15 perces visszaszámláló, amely minden egyes kattintás után újraindul. Ez az egyetemi Neptun rendszer visszaszámlálójához hasonlóan, azt a célt szolgálja, hogy amennyiben egy felhasználó inaktív marad 15 percig, automatikusan kijelentkezik a program. Kijelentkezni egyébként a jobb felső sarokban lévő gombbal bármikor lehet.
 
-Eddig: 16 óra munka benne
-5 perces videó a kódról!
+A kezdőlapon ezen kívül három gomb van elhelyezve, mindegyik külön-külön funkciókkal. Az egyik, a már említett jelszóváltoztatás, ezen a felületen lehet lecserélni a bejelentkező jelszavunkat. A korábban említett szabályok az új jelszóra is vonatkoznak, annyival kiegészítve, hogy az új jelszónak különböznie kell a régitől. Jelszóváltás esetén 1 percre inaktívvá válik a gomb, hogy elteljen egy kis idő két jelszóváltoztatás között.
+
+A következő felületen, az 'Árfolyamok' gombra kattintva, megjelenik egy táblázat az elérhető valuták aktuális árfolyamával. Itt lehet tájékozódni, hogy mit érdemes venni, mire váltsuk az egyenlegünk. A felület 10 másodpercenként frissíti önmagát, hogy mindig akuális árfolyamot mutasson.
+
+Az utolsó gomb, a 'Valutaváltás' gomb visz el a lényegi felületre. Itt látható a felhasználó egyenlege, forintban, valamint itt lehet kiválasztani, hogy melyik valutából, milyen mennyiséget szeretnénk váltani. Az összeg és a valuta megadását is validálja a program, nehogy véletlenül rosszat írjon be a felhasználó. A 'Hozzáad' gombbal lehet a kiválasztott mennyiségű valutát a kosárba helyezni, ami azonnal látható a jobb oldali táblázatban, csakúgy, ahogy az egyenleg is automatikusan frissül. Természetesen, ha a kosárban lévő valuták értéke meghaladja az egyenlegünket, jelez a program, és nem enged vásárolni. Ez esetben, illetve ha valamit mégsem szeretne venni a felhasználó, a 'Törlés' gombbal azonnal kiveheti a kosárból az utoljára hozzáadott valutát. A vásárlást a 'Vásárlás' gombbal lehet véglegesíteni, ami után a megvásárolt elemeket a program kiírja egy csv fájlba, amit a felhasználó lementhet az általa választott elérési útra.
+
+A program tartalmaz xml feldolgozást, az MNB-s webszolgáltatás használatával, unit tesztelést, csv fájlba kiírást, mentést, valamint több timert is. A felépítésre krölbelül 18 órát fordítottam.
