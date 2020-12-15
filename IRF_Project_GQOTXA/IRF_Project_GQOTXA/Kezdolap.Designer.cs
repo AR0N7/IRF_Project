@@ -116,11 +116,11 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(579, 404);
+            this.label1.Location = new System.Drawing.Point(480, 404);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 17);
+            this.label1.Size = new System.Drawing.Size(246, 17);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Made by Tompai Áron";
+            this.label1.Text = "https://github.com/AR0N7/IRF_Project";
             // 
             // button1
             // 
